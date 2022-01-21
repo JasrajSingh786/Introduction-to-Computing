@@ -1,0 +1,104 @@
+ASSIGNMENT 1: 
+
+
+Q1:
+
+Soluton: #To find the average of three numbers a, b and c whose value is to be taken from the user 
+         a = int(input("Enter the value of a: "))
+         b = int(input("Enter the value of b: "))
+         c = int(input("Enter the value of c: "))
+         avg = (a + b + c)/3
+         print("The value of the average of a, b and c is:", avg )
+
+OUTPUT: Enter the value of a: 30
+        Enter the value of b: 40 
+        Enter the value of c: 50
+        The value of average of a, b and c is: 40.0
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q2:
+
+Soluton:  #To compute a person's income tax, where the unit of the gross income, standard deduction, income tax and dependent deduction are in dollars($)
+          Gross_income = int(input("Enter the value of Gross income: "))
+          No_of_Dependents = int(input("Enter the value of Number of dependents: "))
+          Standard_Deduction = 10000 
+          Dependent_Deduction = 3000
+          Income_Tax = Gross_income - Standard_Deduction - ( Dependent_Deduction*No_of_Dependents ) #Because each dependent has a deduction value of 3,000
+
+          print("The value of income tax is: ", Income_Tax)
+
+
+OUTPUT: Enter the value of Gross income: 40000
+        Enter the value of Number of dependents: 6
+        The value of income tax is: 12000
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q3:
+
+Solution: #To Store different data type value into a list. For e.g; Student [SID, Name, Gender, Course Name, CGPA]
+           
+          SID = int(input('Enter the SID: '))
+          Name = str(input('Enter the Name: '))
+          Gender = str(input('Enter the Gender: '))
+          Course = str(input('Enter the name of the Course: '))
+          CGPA = float(input('Enter the value of CGPA: '))
+          Student = [SID , Name, Gender, Course, CGPA]
+          print(Student)
+
+OUTPUT: Enter the SID: 21103106
+        Enter the Name: Jasraj Singh Sohanpal
+        Enter the Gender: M
+        Enter the name of the Course: CSE
+        Enter the value of CGPA: 9.8
+        [21103106, 'Jasraj Singh Sohanpal', 'M', 'CSE', 9.8]
+ 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q4:
+
+Solution: #To write a python program for entering marks of 5 Students in a list and display them in a soted manner (ascending order).
+          
+          Student1 = input("The marks of Student 1 is: ")
+          Student2 = input("The marks of Student 2 is: ")
+          Student3 = input("The marks of Student 3 is: ")
+          Student4 = input("The marks of Student 4 is: ")
+          Student5 = input("The marks of Student 5 is: ")
+          Marks_of_5_Students = [Student1, Student2, Student3, Student4, Student5 ]
+          print(sorted(Marks_of_5_Students))
+
+OUTPUT: The marks of Student 1 is: 99
+        The marks of Student 2 is: 78
+        The marks of Student 3 is: 89
+        The marks of Student 4 is: 56  
+        The marks of Student 5 is: 94
+        [56, 78, 89, 94, 99]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Q5 a.): 
+
+Solution: #To write a python program to print a specified list after removing 4th element
+          #The list in our case is colours = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+          colours = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+          Element_to_be_removed = input(" The element to be removed is: ") #In order to remove an element, which in our case is Black.
+          colours.remove(Element_to_be_removed)
+          print(colour)
+
+OUTPUT: The element to be removed is: Black
+        ['Red', 'Green', 'White', 'Pink', 'Yellow']
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+
+Q5 b.):
+
+Solution: #To replace two elements in a list and replace that with a single element.
+          colours = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+          colours[3:5] = ['Purple'] #Because the index of Black is 3 and [3:5] is interpreted as replace from Index 3 to Index 4 by 'Purple'. 
+          print(colours)
+
+OUTPUT: ['Red', 'Green', 'White', 'Purple', 'Yellow']
