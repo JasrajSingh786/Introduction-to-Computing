@@ -1,0 +1,150 @@
+ASSIGNMENT 2:
+
+Q.1.
+
+
+Solution:
+
+#We are given an input string, Input_String = 'Python is a case sensitive language'.
+#Q.1 a)
+#We are required to find the length of Input_String. In order to find the length of the input string, We will use the length function for string.
+Input_String = "Python is a case sensitive language"
+print("The length of Input String is:", len(Input_String))
+
+#Q.1 b)
+#We have to reverse the order of the Input_String. In order to do so, We will use the slicing method.
+print("The reverse of Input String is:", Input_String[::-1])
+
+#Q.1 c)
+#We have to store "a case sensitve" from the Input String to a New_String1. We will use the Index method to do so.
+#Since the index of a is 10 and index of e (at the end of sensitive) is 25. We will input the array from 10 to 26,as the endpoint at the right hand side is exclusive. 
+New_String1 = Input_String[10:26]
+print(New_String1)
+
+#Q.1 d)
+#We have to replace "a case sensitive" with "object orientated". We will use an inbuilt function named replace and name the updated string as New_String2
+New_String2 = Input_String.replace("a case sensitive","object orientated")
+print('The updated string will be:', New_String2)
+
+#Q.1 e)
+#We have to find the index of the substring "a". In order to do so, We will use the inbuilt function named find(). 
+Index_of_Substring_a = Input_String.find("a")
+print("The Index of Substring 'a' is:", Index_of_Substring_a)
+
+#Q.1 f)
+#We have to remove white spaces. In order to do so, We will again use the replace function.
+New_String3 = Input_String.replace(" ", "")
+print(New_String3) 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.2.
+
+
+Solution:
+
+#We have to use the string formatting to print the following:
+#Hey, Jasraj Singh Sohanpal Here!
+#My SID is 21103106.
+#I am from Computer Science department and My CGPA is 9.9.
+Name = "Jasraj Singh Sohanpal" 
+SID = 21103106
+Department = 'Computer Science'
+CGPA = 9.9
+#We will now use the formatted strings.
+print(f'''Hey, {Name} Here!
+My SID is {SID}.
+I am from {Department} department and My CGPA is {CGPA}.''')
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.3.
+
+
+Solution:
+
+#We are given Variables a=56 and b=10. With the help of Bitwise Operators, We have to calculate the following:
+a = 56
+b = 10
+
+#Q.3 a) a&b
+print(a&b)
+
+#Q.3 b) a|b 
+print(a|b)
+
+#Q.3 c) a^b
+print(a^b)
+
+#Q.3 d) Left shift both a and b with 2 bits.
+print(a<<2)
+print(b<<2)
+
+#Q.3 e) Right shift a with 2 bits and b with 4 bits.
+print(a>>2)
+print(b>>4)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.4.
+
+
+Solution:
+
+#We have to write a program which finds the greatest of three numbers entered by the user.
+Number_1 = float(input('Enter the value of number 1: '))
+Number_2 = float(input('Enter the value of number 2: '))
+Number_3 = float(input('Enter the value of number 3: '))
+#For finding the greatest number,We will use the help of conditional operators in order to do so.
+if Number_1 > Number_2 and Number_1 > Number_3:
+    print("Greatest number out of the three is:", Number_1)
+elif Number_2 > Number_1 and Number_2 > Number_3:
+    print("Greatest number out of the three is:", Number_2)
+else:
+    print("Greatest number out of the three is:", Number_3)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.5.
+
+
+Solution:
+
+#We have to write a python program to check if the word “name” is present in the string entered by the user.
+Entry = input('Enter the string: ')
+#We create the string by using string function which converts the input by user in Entry to a string.
+User_String = str(Entry)
+#We will now use the conditional operators to help us with the program execution.
+Word = 'name'
+if Word in User_String:
+    print('Yes')
+else:
+    print('No')
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q.6.
+
+
+Solution:
+
+#We have to write a program in we enter three sides of a triangle and then convert them to integers, and check whether the given input lengths can form a triangle or not.
+#First, We take the side lengths for the triangle from user.
+Length_1 = float(input('Enter the length of first side of triangle: '))
+Length_2 = float(input('Enter the length of second side of triangle: '))
+Length_3 = float(input('Enter the length of third side of triangle: '))
+#Then, We convert these side lengths using an inbuilt function in python named 'int' function, where it results in the greatest integer to which the input value is greater than or equal to.
+Integer_Length_1 = int(Length_1)
+Integer_Length_2 = int(Length_2)
+Integer_Length_3 = int(Length_3)
+#Now we use the definition of triangle, which is sum of any two sides is greater than the third side with using conditional operators.
+if Integer_Length_1 + Integer_Length_2 > Integer_Length_3 and Integer_Length_1 + Integer_Length_3 > Integer_Length_2 and Integer_Length_2 + Integer_Length_3 > Integer_Length_1:
+    print('Yes, A Triangle can be formed')
+else:
+    print('No, Triangle cannot be formed')
+
+
+
+
+
+
