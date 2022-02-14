@@ -283,7 +283,7 @@ def FibSeq(n): #We are first defining a function named 'FibSeq' which has single
 #For Average, We will use sum() and len() functions for list.
 
 sequence = FibSeq(k)
-Average_of_Fibonacci_Sequence = sum(sequence)/(len(sequence) - 1) #We are substracting 1 from len(sequence) because the list 'sequence' will contain 0 which is not a Fibonacci Number.
+Average_of_Fibonacci_Sequence = sum(sequence)/(len(sequence) - 1) #We are substracting 1 from len(sequence) because the list 'sequence' will contain 0 which is zeroth term of Fibonacci Sequence.
 print("The Average of First '%d' terms of Fibonacci Sequence is: " % k , Average_of_Fibonacci_Sequence)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Q.8.
