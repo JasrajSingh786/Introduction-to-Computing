@@ -1,0 +1,217 @@
+ASSIGNMENT 4:
+
+
+
+Question 1:
+
+
+Solution:
+
+# We have to write a recursive python function to solve the problem of tower of
+# Hanoi with three disks.
+
+def Tower_Of_Hanoi(n , source , destination , Auxiliary): #We first start with general definition to solve the Tower of Hanoi problem for n disks where 
+    if n==1:                                              #source represnts the peg containing all the n disks and destination is the peg where all the disks are to be transferred and auxiliary represents the third peg which will help in the transfer process.
+        print("Move disk 1 from source ",source," to destination ", destination)
+        return
+    Tower_Of_Hanoi(n-1,source, Auxiliary,destination)
+    print("Move disk ",n," from source ",source," to destination ", destination)
+    Tower_Of_Hanoi(n-1, Auxiliary, destination, source)  
+
+# For Three disks: 
+n = 3
+Tower_Of_Hanoi(n, 'A' , 'B' , 'C')
+print("The number of steps involved are: " ,2**n - 1 )
+#Note that size of disk 1 less than disk 2 which is further less than disk 3.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 2:
+
+
+Solution:
+
+# We have to write a python program to print the Pascal’s triangle for n number of
+# rows given by the user using both recursive and iterative procedures
+# (for/while loop).
+
+n = int(input("Enter the number of rows in Pascal's Triangle which are to be printed: "))
+print("The Required pattern upto the %dth row using for/while loop is: " % n)
+Lst1 = [1]
+Lst2 = [1, 1]
+Lst3 = Lst2
+
+#Using for/while loop:
+
+def Next_row(Lst):
+    InLst = [1]
+    k = int(len(Lst))
+    for i in range(k-1):
+        InLst.append(Lst[i] + Lst[i + 1])
+    return InLst + [1] 
+
+if n == 1:
+    print(Lst1)
+elif n ==2:
+    print(Lst1)
+    print(Lst2)
+else:
+    print(Lst1)
+    print(Lst2)
+    for t in range(1,n-1):
+        Lst3 = Next_row(Lst3)
+        print(Lst3)
+
+
+#Using recursive definition:
+print("The Required pattern upto the %dth row using recursive definition is: " % n)
+
+def pascals_triangle(n):
+    """ Recursive function to calculate Pascals Triangle """
+    if n == 1:
+        return [[1]] # Base case termination condition
+    else:
+        result = pascals_triangle(n-1) # Recursive call
+        # Calculate current row using info from previous row
+        current_row = [1]
+        previous_row = result[-1] # Take from end of result
+        for i in range(len(previous_row)-1):
+            current_row.append(previous_row[i] + previous_row[i+1])
+        current_row += [1]
+        result.append(current_row)
+        return result
+
+
+triangle = pascals_triangle(n)
+for row in triangle:
+    print(row)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 3:
+
+
+Solution:
+
+# Input two integer values from user, calculate and print the quotient
+# and reminder obtained from the two values,
+# a) Check whether it(function/values) is callable or not.
+# b) Check whether all the values are non zeros or not.
+# c) Add values (4, 5, 6) to the result and filter out the values which
+# are greater than 4.
+# d) Convert the above result into set datatype.
+# e) Make that set immutable.
+# f) Evaluate the maximum value from set and find out its hash
+# value.
+
+Integer1 = int(input("Enter the First Integer: "))
+Integer2 = int(input("Enter the Second Integer: "))
+#We will use the divmod method to print the quotient and remainder.
+
+def QuoRem(Integer1,Integer2):
+   if Integer1 > Integer2 and Integer1 != 0 and Integer2 != 0:
+        Quotient1,Remainder1 = divmod(Integer1,Integer2)
+        print("The Quotient is ", Quotient1 , " and the Remainder is ", Remainder1)
+        return Quotient1,Remainder1
+   elif Integer2 > Integer1  and Integer1 != 0 and Integer2 != 0:
+        Quotient2,Remainder2= divmod(Integer2,Integer1)
+        print("The Quotient is ", Quotient2," and the Remainder is ",Remainder2)
+        return Quotient2,Remainder2   
+   elif Integer1 == 0 and Integer2 != 0:
+        Quotient3,Remainder3 = 0,0
+        print("The Quotient is ", Quotient3," and the Remainder is ",Remainder3)
+        return Quotient3,Remainder3
+   elif Integer1 != 0 and Integer2 == 0:
+        Quotient4,Remainder4 = 0,0 
+        print("The Quotient is ", Quotient4," and the Remainder is ",Remainder4)
+        return Quotient4,Remainder4
+
+x = QuoRem(Integer1,Integer2)  
+print("Is Function callable: ",callable(QuoRem))
+
+# We will Create the tuple containing (Quotient, Remainder, 4 ,5 ,6) and then procede with the question:
+
+Tupl = x + (4,5,6)
+List = list()
+for i in Tupl:
+    if i > 4: 
+        List = List +[i]
+
+print("The Tuple containing values from (%d ,%d , 4, 5, 6) which are greater than 4 is:  "%(x[0],x[1]),tuple(List))
+
+#We will now convert the above result into set data type:
+
+Set1 = set(List)
+
+#Making the above Set immutable:
+
+New_Set = frozenset(Set1)
+
+#Printing the Max and Min value in the Set and corresponding Hash values:
+
+print("Maximum value of the Set: ",max(New_Set))
+print("Hash value of Maximum value is: ",hash(max(New_Set)))
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 4:
+
+
+Solution:
+
+class Student:
+    def __init__(self,name,roll_no):
+        self.name = name
+        self.roll_no = roll_no
+
+    def __del__(self):
+        print("Destructor is Called, Object Deleted.")
+
+
+Student1 = Student('Jasraj Singh',21103106 )
+print("Name of the Student is: ",Student1.name)
+print("Roll No. of the the Student is: ",Student1.roll_no)
+
+#Using del function to delete the object created.
+del Student1
+#We can even check by printing type of the object Student1 which was initialized.
+print("We will get the following error ,once we have called the del function on object, if we now try to find the type of Student1: ")
+print(type(Student1))
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 5:
+
+
+Solution:
+
+class Employee:
+    def __init__(self,Name,Salary):
+        self.Name = Name
+        self.Salary = Salary
+        
+
+Employee1 = Employee('Mehak',40000)
+Employee2 = Employee('Ashok',50000)
+Employee3 = Employee('Viren',60000)
+#Now, We will update the salary of Mehak (i,e: Employee1) to 70000:
+Employee1.Salary = 70000
+print("Updated Salary of Mehak: ",Employee1.Salary)
+#Now ,We will delete the Record of Viren(i,e: Employee3) using del function:
+del Employee3
+print("We will get the following error once we have deleted the Object: ")
+print(Employee3.Name)
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 6:
+
+
+Solution:
+
+str1=input("George Enter a Word = ")
+str2=input("Barbie Enter a Word = ")
+lst1=[]
+lst2=[]
+for i in str1:
+    lst1.append(i)
+for j in str2:
+    lst2.append(j)
+
+lst1.sort()
+lst2.sort()
+
+if lst1 == lst2 :
+    print("Barbie and George are True Friends")
+else:
+    print("Barbie and George are Fake Friends")
