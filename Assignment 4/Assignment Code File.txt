@@ -203,9 +203,9 @@ str1=input("George Enter a Word = ")
 str2=input("Barbie Enter a Word = ")
 lst1=[]
 lst2=[]
-for i in str1:
+for i in str1.lower():
     lst1.append(i)
-for j in str2:
+for j in str2.lower():
     lst2.append(j)
 
 lst1.sort()
