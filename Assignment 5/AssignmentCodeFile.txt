@@ -1,0 +1,281 @@
+ASSIGNMENT 5:
+
+
+Q.1.
+
+Solution: 
+
+from tkinter import *
+#Designing the width and hieght of the GUI
+GST_root = Tk()
+GST_root.title("GST Rate Finder")
+GST_root.maxsize(width=400,height=200)
+GST_root.minsize(width=400,height=200)
+
+# Introducing two objects of class: DoubleVar
+Original_Cost = DoubleVar()
+Net_Price = DoubleVar()
+
+#Introducing three widgets having names as Original Cost , Net Price and GST Rate.
+#Using grid() layout manager for assigning spce to the respective widgets.
+Original_Cost_Label = Label(GST_root,text="Original Cost:",font=("Arabic",20))
+Original_Cost_Label.grid(row=0,column=0)
+Net_Price_Label = Label(GST_root,text="Net Price:",font=("Arabic",20))
+Net_Price_Label.grid(row=1,column=0)
+GST_Label = Label(GST_root,text= "GST Rate is:",font=("Arabic",20))
+GST_Label.grid(row=3,column=0)
+Note_Label = Label(GST_root,text= "NOTE:\nOriginal Cost must be less than the Net Price")
+Note_Label.place(x=50,y=165)
+
+#Introducing Entries in which corresponding values will be displayed of each respective widget created.
+Entry_Original_Cost = Entry(GST_root,textvariable=Original_Cost)
+Entry_Original_Cost.grid(row=0,column=1)
+Entry_Net_price = Entry(GST_root,textvariable=Net_Price)
+Entry_Net_price.grid(row=1,column=1)
+Entry_GST_Rate = Entry(GST_root)
+Entry_GST_Rate.grid(row=3,column=1)
+
+#Defining the function Find() which will find the GST Rate and will be displayed at the entry widget of the GST Rate.
+def Find():
+    original_cost = (Original_Cost.get())
+    net_price = (Net_Price.get())
+    gst_rate = ((net_price-original_cost)*100)/original_cost
+    Entry_GST_Rate.insert(10 ,str(gst_rate)+"%") #Used to insert the GST Rate in the GST Rate Entry box widget.
+
+#Function for clearing the context of all the boxes.
+def Clear():
+    Entry_Original_Cost.delete(0,END)
+    Entry_Net_price.delete(0,END)
+    Entry_GST_Rate.delete(0,END)
+#Creating the Find Button attached to the Find() function.
+Find_Button = Button(GST_root,text="Find",command=Find)
+Find_Button.grid(row=2,column=0)
+#Creating the Clear Button attached to the Clear() function.
+Clear_button = Button(GST_root,text="Clear",command=Clear)
+Clear_button.grid(row=4,column=0)
+GST_root.mainloop()
+-------------------------------------------------------------------------------------------------------------------------------
+
+Q.2.
+
+Solution:
+
+import tkinter as tk
+import calendar
+root = tk.Tk()
+root.geometry("630x420")
+root.title("Calender")
+Frame1 = tk.Frame(root)
+Frame1.grid(row=1,column=0)
+Year = tk.IntVar()
+
+def Next():
+    year = Year.get()
+    print("The calender is shown below:\n"+calendar.calendar(year))
+
+Label1  = tk.Label(root,text="Enter the Year:",font=("Bold",12))
+Label1.grid(row=0,column=0)
+Entry1 = tk.Entry(root,textvariable=Year,font=("Bold",12))
+Entry1.grid(row=0,column=1,padx = 20)
+PrintButton = tk.Button(root,text="Print The Calender",command = Next,font=("Arial",12))
+PrintButton.place(x = 60,y = 40)
+
+root.mainloop()
+----------------------------------------------------------------------------------------------------------------------------
+
+Q.3.
+
+Solution:
+
+from tkinter import *
+
+app = Tk()
+app.geometry("170x230")
+app.title("python-calculator")
+app.maxsize(170,230)
+app.minsize(170,230)
+ent = Entry(app, width=16, borderwidth=3, relief=RIDGE)
+ent.grid(pady=10,row=0,sticky="w",padx=15)
+def delete():
+        a = ent.get()
+        ent.delete(first=len(a)-1,last="end")
+def fresult():
+        if ent.get() == "":
+                pass
+        elif ent.get()[0] == "0":
+                ent.delete(0,"end")
+        else:
+                c_res = ent.get()
+                c_res = eval(c_res)
+                clearf()
+                ent.insert("end",c_res)
+def clearf():
+        ent.delete(0,"end")
+clean = Button(app,text="C",width=2,command=clearf,bg="green",fg="white",relief=RIDGE)
+clean.grid(row=0,sticky="w",padx=125)
+Char_nine = Button(text="9",width=2,command=lambda : ent.insert("end","9"),borderwidth=3,relief=RIDGE)
+Char_nine.grid(row=1,sticky="w",padx=15)
+Char_eight = Button(text="8",width=2,command=lambda : ent.insert("end","8"),borderwidth=3,relief=RIDGE)
+Char_eight.grid(row=1,sticky="w",padx=45)
+Char_seven = Button(app,text="7",width=2,command=lambda : ent.insert("end","7"),borderwidth=3,relief=RIDGE)
+Char_seven.grid(row=1,sticky="w",padx=75)
+Char_plus = Button(app,text="+",width=2,command=lambda : ent.insert("end","+"),borderwidth=3,relief=RIDGE)
+Char_plus.grid(row=1,sticky="e",padx=125)
+Char_six = Button(text="6",width=2,command=lambda : ent.insert("end","6"),borderwidth=3,relief=RIDGE)
+Char_six.grid(row=2,sticky="w",padx=15,pady=5)
+Char_five = Button(text="5",width=2,command=lambda : ent.insert("end","5"),borderwidth=3,relief=RIDGE)
+Char_five.grid(row=2,sticky="w",padx=45,pady=5)
+Char_four = Button(app,text="4",width=2,command=lambda : ent.insert("end","4"),borderwidth=3,relief=RIDGE)
+Char_four.grid(row=2,sticky="w",padx=75,pady=5)
+Char_minus = Button(app,text="-",width=2,command=lambda : ent.insert("end","-"),borderwidth=3,relief=RIDGE)
+Char_minus.grid(row=2,sticky="e",padx=125,pady=5)
+Char_three = Button(text="3",width=2,command=lambda : ent.insert("end","3"),borderwidth=3,relief=RIDGE)
+Char_three.grid(row=3,sticky="w",padx=15,pady=5)
+Char_two = Button(text="2",width=2,command=lambda : ent.insert("end","2"),borderwidth=3,relief=RIDGE)
+Char_two.grid(row=3,sticky="w",padx=45,pady=5)
+Char_one = Button(app,text="1",width=2,command=lambda : ent.insert("end","1"),borderwidth=3,relief=RIDGE)
+Char_one.grid(row=3,sticky="w",padx=75,pady=5)
+Char_multiply = Button(app,text="*",width=2,command=lambda : ent.insert("end","*"),borderwidth=3,relief=RIDGE)
+Char_multiply.grid(row=3,sticky="e",padx=125,pady=5)
+Char_zero = Button(text="0",width=2,command=lambda : ent.insert("end","0"),borderwidth=3,relief=RIDGE)
+Char_zero.grid(row=4,sticky="w",padx=15,pady=5)
+Char_double_zero = Button(text="00",width=2,command=lambda : ent.insert("end","00"),borderwidth=3,relief=RIDGE)
+Char_double_zero.grid(row=4,sticky="w",padx=45,pady=5)
+Char_dot = Button(app,text=".",width=2,command=lambda : ent.insert("end","."),borderwidth=3,relief=RIDGE)
+Char_dot.grid(row=4,sticky="w",padx=75,pady=5)
+Char_divide = Button(app,text="/",width=2,command=lambda : ent.insert("end","/"),borderwidth=3,relief=RIDGE)
+Char_divide.grid(row=4,sticky="e",padx=125,pady=5)
+result = Button(app,text="=",width=10,command=fresult,bg="green",fg="white",borderwidth=3,relief=RIDGE)
+result.grid(row=5,sticky="w",padx=15,pady=5)
+delete1 = Button(app,text="del",width=2,command=delete,borderwidth=3,relief=RIDGE)
+delete1.grid(row=5,sticky="w",padx=80,pady=5)
+app.mainloop()
+----------------------------------------------------------------------------------------------------------------------------
+
+Q.4.
+
+Solution:
+
+# We have to write a Python Script to create a list of marks for n number of students entered by the user.
+# Sort the input list using merge/Quick sort algorithm and print the final sorted List.
+
+#a.) Entering and Creating the Input Array of Marks of 'n' Students:
+Input_Marks_Array = list()
+Length = int(input("Enter the Number of Students: "))
+Marks_Of_First_Student  =  int(input('Enter the Marks of First Student: '))
+Input_Marks_Array.append(Marks_Of_First_Student)
+for i in range(0,Length-1):
+    Marks = int(input("Enter the Marks of Next Student: "))
+    Input_Marks_Array.append(Marks)
+    
+print(f"The Input Array of Marks of {len(Input_Marks_Array)} Students is: ",Input_Marks_Array)
+
+#b.) Sorting the Input Array of Marks of 'n' Students using Selection Sort Method:
+#First, We will introduce a function which will return the Index of the Smallest Value in an Array
+#Then, We will define the Selection Sort Function which will give us the required Sorted Array. 
+def IndexOfSmallestNum(array):
+    n = 0
+    k = 0
+    SmallestNumber = array[0]
+    while n < len(array)-1:
+        if SmallestNumber > array[n+1]:
+            SmallestNumber = array[n+1]
+            k = n + 1
+            n = n + 1
+        elif SmallestNumber<= array[n+1]:
+            n = n + 1
+    return k  
+
+def SelectionSort(array):
+    for i in range(0,len(array)):
+        list1 = array[i:]
+        n = IndexOfSmallestNum(list1)
+        l1 = array[i]
+        l2 = list1[n]
+        array[i] = l2
+        array[n+i] = l1
+        
+    return array    
+
+print(f"The Sorted Array of Marks of {len(Input_Marks_Array)} Students is: ",SelectionSort(Input_Marks_Array))   
+----------------------------------------------------------------------------------------------------------------------------
+
+Q.5.
+
+Solution:
+
+#We have to write a Python Script to create an integer array containing duplicates entered by the user
+#and then perform the following:
+#a. Sort the inputted array.
+#b. Using binary search algorithm Search the element entered by the user in the sorted
+#array list (if the element is not present, print an error message)
+#c. Count the number of occurrences of that element.
+
+# First We are defining the algorithm for the Binary Search Function and Buuble Sort Function.
+# Binary Search Function:
+def binary_search(arr, x):
+    low = 0
+    high = len(arr) - 1
+    mid = 0
+    while low <= high:
+        mid = (high + low) // 2
+# If x is greater, ignore left half
+        if arr[mid] < x:
+            low = mid + 1
+
+# If x is smaller, ignore right half
+        elif arr[mid] > x: 
+            high = mid - 1
+
+# means x is present at mid
+        else:
+            return mid
+    return -1        
+
+# Bubble Sort Function:
+def bubblesort(array):
+    swapped = False
+    for j in range (0,len(array)):
+        for i in range (0,len(array)-j-1):
+            if array[i]<=array[i+1]:
+                swapped = False
+                continue
+            elif array[i]>array[i+1]:
+                l1 = array[i]
+                l2 = array[i+1]
+                array[i] = l2
+                array[i+1] = l1
+                swapped = True
+    return array  
+
+#Creating the input array:
+Input_Array = list()
+Num1  =  int(input('Enter the First Number: '))
+Input_Array.append(Num1)
+while True:
+    Str = str(input("Do yo want to add more (Yes or No): "))
+    if Str == "Yes":
+        Number = int(input("Enter the Number: "))
+        Input_Array.append(Number)
+    elif Str == "No":
+        break    
+    else:
+        print("Error! Please Enter->(Yes or No)")
+print("The Input Array is: ",Input_Array)
+print("The Sorted Input List: ",bubblesort(Input_Array))
+Sorted_Array = bubblesort(Input_Array)
+# 'element' is the number whose index we want to find in the Sorted Array.
+element = int(input("Enter the Number which you want to search in the Array: "))
+if element in bubblesort(Input_Array):
+    print("The Index of the required element is: ",binary_search(Sorted_Array,element))
+else:
+    print("Error! The element is not present")
+
+def OccurencesInArray(element):
+    Occurences = 0
+    for i in Sorted_Array:
+        if i == element:
+            Occurences += 1
+    return Occurences
+
+print("The Number of Occurences of Element is: ",OccurencesInArray(element))
